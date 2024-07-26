@@ -4,6 +4,7 @@ venv/*
 /config.json/
 config.json/
 /config.json
+src/client/apps/utils/config.json 
 
 test/*
 
