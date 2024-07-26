@@ -2,7 +2,7 @@ from apps.utils.objects import payload
 import socket
 from apps.web import web
 from apps.update import update
-from apps.utils.loadConfig import load
+from apps.utils.loadConfig import config
 
 def responder(client, mensaje):
     client.sendall(mensaje.encode())
@@ -10,7 +10,10 @@ def responder(client, mensaje):
 def processor(client:socket.socket, data:payload):
     
     NAME_PAYLOAD = data.executor.name
-    CONFIG = load()
+    CONFIG = config().load()
+
+    if CONFIG["last_update"] == data.code:
+        return
     
     # -- Controlando el payload
     if NAME_PAYLOAD == "web":
@@ -21,3 +24,6 @@ def processor(client:socket.socket, data:payload):
         if update.forUpdate("TechAtlasDev", "xratVTA", "../..") and not CONFIG["dev"]:
             update.git_pull()
         responder(client, "Sistema actualizado")
+
+    # EL PROCESAMIENTO DE LOS DATOS TERMINÓ
+    config().setData("last_update", data.code)
