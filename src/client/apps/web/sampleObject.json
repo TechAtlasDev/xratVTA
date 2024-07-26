@@ -1,0 +1,16 @@
+{
+  "code": 1,
+  "reps": 1,
+  "executor": {
+    "name": "web",
+    "code": 1,
+    "execution": "https://google.com/",
+    "description": "Payload para visitar a Google.com -> Prueba",
+    "postdata": {
+      "method": "get",
+      "params": {
+        "timeout": 1
+      }
+    }
+  }
+}
