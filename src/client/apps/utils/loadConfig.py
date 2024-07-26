@@ -18,5 +18,5 @@ class config:
         with open(self.ruta, 'r', encoding='utf-8') as archivo:
             config = json.load(archivo)
             config[key] = value
-            json.dump(config, open(archivo, "w"), indent=4)
+            json.dump(config, open(self.ruta, "w"), indent=4)
             return True
