@@ -16,7 +16,7 @@ class config:
 
     def setData(self, key, value):
         with open(self.ruta, 'w', encoding='utf-8') as archivo:
-            config = self.load()
+            config = json.load(archivo)
             config[key] = value
             json.dump(config, archivo, indent=4)
             return True
