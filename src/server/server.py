@@ -41,7 +41,7 @@ param1 = "parámetro1"
 param2 = "parámetro2"
 
 # Crear y arrancar el hilo para la tarea periódica con parámetros
-task_thread = threading.Thread(target=periodic_task, args=(param1, param2), daemon=True)
+task_thread = threading.Thread(target=control_update, daemon=True)
 task_thread.start()
 
 while True:

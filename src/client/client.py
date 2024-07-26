@@ -3,8 +3,8 @@ import socket, json, time
 from apps.utils.objects import payload
 from apps.main import processor
 
-HOST = 'localhost'
-PORT = 50007
+HOST = '159.112.139.10'
+PORT = 7788
 
 while True:
     time.sleep(5)
