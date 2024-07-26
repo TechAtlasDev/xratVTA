@@ -10,7 +10,7 @@ HOST = '0.0.0.0'
 PORT = 7788
 
 
-def git_pull(repo_path=".."):
+def git_pull(repo_path="../.."):
     repo = git.Repo(repo_path)
     repo.git.reset('--hard')
     origin = repo.remotes.origin
@@ -20,7 +20,7 @@ def git_pull(repo_path=".."):
     argumentos = sys.argv[:]
     os.execv(sys.executable, [sys.executable] + argumentos)
 
-def forUpdate(owner, project, local_path=".."):
+def forUpdate(owner, project, local_path="../.."):
     local = str(git.Repo(local_path).head.commit.hexsha)
     remoto = str(requests.get(f"https://api.github.com/repos/{owner}/{project}/commits").json()[0]["sha"])
 
