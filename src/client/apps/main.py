@@ -4,6 +4,9 @@ from apps.web import web
 from apps.update import update
 from apps.utils.loadConfig import load
 
+def responder(client, mensaje):
+    client.sendall(mensaje)
+
 def processor(client:socket.socket, data:payload):
     
     NAME_PAYLOAD = data.executor.name
@@ -12,8 +15,9 @@ def processor(client:socket.socket, data:payload):
     # -- Controlando el payload
     if NAME_PAYLOAD == "web":
         response = web.recv(data)
-        client.sendall(response.status_code.__str__().encode())
+        responder(client, response.status_code.__str__().encode())
 
     if NAME_PAYLOAD == "update":
         if update.forUpdate("TechAtlasDev", "xratVTA", "../..") and not CONFIG["dev"]:
             update.git_pull()
+        responder(client, "Sistema actualizado")
