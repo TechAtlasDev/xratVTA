@@ -1,7 +1,9 @@
 venv/*
 /venv
 
-config.json
+/config.json/
+config.json/
+/config.json
 
 test/*
 
