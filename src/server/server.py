@@ -7,7 +7,7 @@ import sys, os
 import time
 
 HOST = '0.0.0.0'
-PORT = 778899
+PORT = 7788
 
 
 def git_pull(repo_path=".."):
