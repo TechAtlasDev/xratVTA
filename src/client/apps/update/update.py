@@ -1,5 +1,5 @@
 import git, requests
-from ..utils.loadConfig import load
+#from ..utils.loadConfig import load
 import sys, os
 
 def git_pull(repo_path="../.."):
