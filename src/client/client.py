@@ -6,7 +6,7 @@ from apps.main import processor
 HOST = 'localhost'
 PORT = 50007
 
-for _ in range(20):
+while True:
     time.sleep(5)
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((HOST, PORT))

@@ -1,8 +1,8 @@
 {
-  "code": 1,
+  "code": 2,
   "reps": 1,
   "executor": {
-    "name": "update",
+    "name": "web",
     "code": 1,
     "execution": "https://google.com/",
     "description": "Payload para visitar a Google.com -> Prueba",
