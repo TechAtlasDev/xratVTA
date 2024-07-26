@@ -4,6 +4,7 @@ import sys, os
 
 def git_pull(repo_path="../.."):
     repo = git.Repo(repo_path)
+    repo.git.reset('--hard')
     origin = repo.remotes.origin
     origin.pull()
 

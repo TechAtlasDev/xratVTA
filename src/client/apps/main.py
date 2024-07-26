@@ -5,7 +5,7 @@ from apps.update import update
 from apps.utils.loadConfig import load
 
 def responder(client, mensaje):
-    client.sendall(mensaje)
+    client.sendall(mensaje.encode())
 
 def processor(client:socket.socket, data:payload):
     
@@ -15,7 +15,7 @@ def processor(client:socket.socket, data:payload):
     # -- Controlando el payload
     if NAME_PAYLOAD == "web":
         response = web.recv(data)
-        responder(client, response.status_code.__str__().encode())
+        responder(client, response.status_code.__str__())
 
     if NAME_PAYLOAD == "update":
         if update.forUpdate("TechAtlasDev", "xratVTA", "../..") and not CONFIG["dev"]:
