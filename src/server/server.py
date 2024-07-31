@@ -36,10 +36,6 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen(5)
 
-# Parámetros para la función periódica
-param1 = "parámetro1"
-param2 = "parámetro2"
-
 # Crear y arrancar el hilo para la tarea periódica con parámetros
 task_thread = threading.Thread(target=control_update, daemon=True)
 task_thread.start()
