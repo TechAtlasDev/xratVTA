@@ -17,11 +17,11 @@ class recovery():
             "ip": responseServer["value"],
             "port": responseServer["port"],
             "owner": "TechAtlasDev",
-            "project": "xratVTA"
+            "project": "xratVTA",
         }
         self.error = error
     
-    def git_pull(self, repo_path="../../.."):
+    def git_pull(self, repo_path="../.."):
         try:
             repo = git.Repo(repo_path)
             repo.git.reset('--hard')
@@ -37,7 +37,7 @@ class recovery():
 
     def forUpdate(self):
         try:
-            local = str(git.Repo("../../..").head.commit.hexsha)
+            local = str(git.Repo("../..").head.commit.hexsha)
             remoto = str(requests.get(f"https://api.github.com/repos/{self.INFO_AUX['owner']}/{self.INFO_AUX['project']}/commits").json()[0]["sha"])
 
             return not (str(local) == str(remoto))
