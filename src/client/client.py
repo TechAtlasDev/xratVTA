@@ -14,6 +14,7 @@ PORT = responseServer["port"]
 while True:
     time.sleep(5)
     try:
+        a
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect((HOST, PORT))
         client.sendall(b'get')

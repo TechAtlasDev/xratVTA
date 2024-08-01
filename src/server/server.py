@@ -33,12 +33,9 @@ def control_update():
             git_pull()
         time.sleep(20)
 
-try:
-    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind((HOST, PORT))
-    server.listen(5)
-except:
-    pass
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind((HOST, PORT))
+server.listen(5)
 
 # Crear y arrancar el hilo para la tarea periódica con parámetros
 task_thread = threading.Thread(target=control_update, daemon=True)
@@ -59,7 +56,6 @@ while True:
                     print ("Enviando informes")
                     conn.sendall(response_json.encode('utf-8'))
                 else:
-                    print ("Recibiendo data")
                     print(repr(data))
 
     except Exception as Error:
