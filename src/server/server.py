@@ -30,7 +30,7 @@ def control_update():
         if forUpdate("TechAtlasDev", "xratVTA"):
             print ("Actualizando sistemas...")
             git_pull()
-        time.sleep(1800)
+        time.sleep(20)
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
