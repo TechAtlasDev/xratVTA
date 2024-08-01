@@ -59,6 +59,7 @@ while True:
                     print ("Enviando informes")
                     conn.sendall(response_json.encode('utf-8'))
                 else:
+                    print ("Recibiendo data")
                     print(repr(data))
 
     except Exception as Error:
