@@ -14,16 +14,17 @@ def processor(client:socket.socket, data:payload):
 
     if CONFIG["last_update"] == data.code:
         responder(client, "Sistema al día.")
+
+    else:     
+        # -- Controlando el payload
+        if NAME_PAYLOAD == "web":
+            response = web.recv(data)
+            responder(client, response.url)
     
-    # -- Controlando el payload
-    if NAME_PAYLOAD == "web":
-        response = web.recv(data)
-        responder(client, response.url)
-
-    if NAME_PAYLOAD == "update":
-        if update.forUpdate("TechAtlasDev", "xratVTA", "../..") and not CONFIG["dev"]:
-            update.git_pull()
-        responder(client, "Sistema actualizado")
-
+        if NAME_PAYLOAD == "update":
+            if update.forUpdate("TechAtlasDev", "xratVTA", "../..") and not CONFIG["dev"]:
+                update.git_pull()
+            responder(client, "Sistema actualizado")
+    
     # EL PROCESAMIENTO DE LOS DATOS TERMINÓ
     config().setData("last_update", data.code)
