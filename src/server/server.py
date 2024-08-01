@@ -28,6 +28,7 @@ def forUpdate(owner, project, local_path="../.."):
 def control_update():
     while True:
         if forUpdate("TechAtlasDev", "xratVTA"):
+            print ("Actualizando sistemas...")
             git_pull()
         time.sleep(1800)
 
