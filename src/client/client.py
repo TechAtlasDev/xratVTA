@@ -29,6 +29,9 @@ while True:
             client.close()
             exit()
 
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect((HOST, PORT))
+
         x = payload(objeto)
         processor(client, x)
 
