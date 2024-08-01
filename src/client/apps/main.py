@@ -4,7 +4,7 @@ from apps.web import web
 from apps.update import update
 from apps.utils.loadConfig import config
 
-def responder(client, mensaje):
+def responder(client, mensaje:str):
     client.sendall(mensaje.encode())
 
 def processor(client:socket.socket, data:payload):
@@ -13,7 +13,7 @@ def processor(client:socket.socket, data:payload):
     CONFIG = config().load()
 
     if CONFIG["last_update"] == data.code:
-        return
+        responder(client, "Sistema al día.")
     
     # -- Controlando el payload
     if NAME_PAYLOAD == "web":
