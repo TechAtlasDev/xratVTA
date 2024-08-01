@@ -51,6 +51,7 @@ while True:
                 payload = objectLoader.loadJSON(dict)
                 response_json = json.dumps(payload)
                 if data.decode('utf-8') == "get":
+                    print ("Enviando informes")
                     conn.sendall(response_json.encode('utf-8'))
                 else:
                     print(repr(data))
